@@ -12,7 +12,8 @@ const TodoForm = ({addTodo}) =>{
         e.preventDefault()
 
         if(!input){
-            alert("add a todo !")
+            alert("enter todo !")
+            return;
         }
         addTodo(input)
         setInput("")

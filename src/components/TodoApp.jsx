@@ -6,7 +6,7 @@ const TodoApp = () =>{
     const [todos, setTodos] = useState([])
 
  const todoHandler = (input) =>{
-    console.log(input);
+    // console.log(input);
     const newTodo = {
         id: Math.floor(Math.random() * 1000),
         text: input,
@@ -15,10 +15,20 @@ const TodoApp = () =>{
     setTodos([...todos, newTodo])
  }
 
+ const completeTodo = (id) =>{
+    console.log(id);
+    const index = todos.findIndex((p) => p.id === id)
+    const selectedTodo = {...todos[index]}
+    selectedTodo.isCompleted = !selectedTodo.isCompleted 
+    const updatedTodos = [...todos]
+    updatedTodos[index] = selectedTodo
+    setTodos(updatedTodos)
+ }
+
     return(
         <div className="container">
             <TodoForm addTodo = {todoHandler}/>
-            <TodoList/>
+            <TodoList showTodos={todos} onComplete={completeTodo}/>
         </div>
     )
  }
