@@ -5,7 +5,7 @@ import TodoList from "./TodoList"
 const TodoApp = () =>{
     const [todos, setTodos] = useState([])
 
- const todoHandler = (input) =>{
+ const addTodo = (input) =>{
     // console.log(input);
     const newTodo = {
         id: Math.floor(Math.random() * 1000),
@@ -29,10 +29,14 @@ const TodoApp = () =>{
     setTodos(filteredTodos)
  }
 
+ const editTodo = (id) => {
+    console.log(id);
+ }
+
     return(
         <div className="container">
-            <TodoForm addTodo = {todoHandler}/>
-            <TodoList showTodos={todos} onComplete={completeTodo} onDelete={deleteTodos}/>
+            <TodoForm submitTodo = {addTodo}/>
+            <TodoList showTodos={todos} onComplete={completeTodo} onDelete={deleteTodos} onEdit={editTodo}/>
         </div>
     )
  }
