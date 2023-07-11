@@ -16,19 +16,23 @@ const TodoApp = () =>{
  }
 
  const completeTodo = (id) =>{
-    console.log(id);
     const index = todos.findIndex((p) => p.id === id)
-    const selectedTodo = {...todos[index]}
-    selectedTodo.isCompleted = !selectedTodo.isCompleted 
+    const selectedTodos = {...todos[index]}
+    selectedTodos.isCompleted = !selectedTodos.isCompleted
     const updatedTodos = [...todos]
-    updatedTodos[index] = selectedTodo
+    updatedTodos[index] = selectedTodos
     setTodos(updatedTodos)
+ }
+
+ const deleteTodos = (id) =>{
+    const filteredTodos = todos.filter((p) => p.id !== id)
+    setTodos(filteredTodos)
  }
 
     return(
         <div className="container">
             <TodoForm addTodo = {todoHandler}/>
-            <TodoList showTodos={todos} onComplete={completeTodo}/>
+            <TodoList showTodos={todos} onComplete={completeTodo} onDelete={deleteTodos}/>
         </div>
     )
  }

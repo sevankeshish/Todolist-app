@@ -1,10 +1,10 @@
-const Todo = ({showTodos,completeHandler}) => {
+const Todo = ({showTodos,completeHandler,deletHandler}) => {
     return ( 
         <div className="todo">
-            <div className={showTodos.isCompleted ? "completed" : ""}>{showTodos.text}</div>
+            <div onClick={completeHandler} className={showTodos.isCompleted ? "completed" : ""}>{showTodos.text}</div>
             <div>
                 <button>Edit</button>
-                <button onClick={completeHandler}>Completed</button>
+                <button onClick={deletHandler}>Delete</button>
             </div>
         </div>
      );
