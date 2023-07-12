@@ -3,7 +3,7 @@ import Todo from "./Todo"
 import TodoForm from "./TodoForm";
 
 const TodoList = ({showTodos,onComplete,onDelete, onEdit}) => {
-    const [editTodo, setEditTodo] = useState({id:null, text:"", isComplited:false})
+    const [editTodo, setEditTodo] = useState({id:null, text:"", isCompleted:false})
 
     const editTodoHandler = (newValue) =>{
          onEdit(editTodo.id, newValue)
