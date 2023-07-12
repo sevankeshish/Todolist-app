@@ -29,9 +29,13 @@ const TodoApp = () =>{
     setTodos(filteredTodos)
  }
 
- const editTodo = (id) => {
-    console.log(id);
- }
+ const editTodo = (id, newValue) => {
+   const index = todos.findIndex((p) => p.id === id)
+   const selectedTodos = {...todos[index]}
+   selectedTodos.text = newValue
+   const updatedTodos = [...todos]
+   updatedTodos[index] = selectedTodos
+   setTodos(updatedTodos) }
 
     return(
         <div className="container">

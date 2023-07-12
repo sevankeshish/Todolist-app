@@ -5,8 +5,9 @@ import TodoForm from "./TodoForm";
 const TodoList = ({showTodos,onComplete,onDelete, onEdit}) => {
     const [editTodo, setEditTodo] = useState({id:null, text:"", isComplited:false})
 
-    const editTodoHandler = () =>{
-         onEdit(editTodo.id)
+    const editTodoHandler = (newValue) =>{
+         onEdit(editTodo.id, newValue)
+         setEditTodo({id: null, text:""})
     }
 
     const renderTodos = () =>{
@@ -17,7 +18,7 @@ const TodoList = ({showTodos,onComplete,onDelete, onEdit}) => {
             })
     }
 
-    return <div>{editTodo.id ? <TodoForm submitTodo={editTodoHandler}/> : renderTodos()}</div>
+    return <div>{editTodo.id ? <TodoForm submitTodo={editTodoHandler} edit={editTodo}/> : renderTodos()}</div>
 }
 
 export default TodoList

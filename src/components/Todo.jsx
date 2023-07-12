@@ -3,8 +3,8 @@ const Todo = ({showTodos,completeHandler,deletHandler,editHandler}) => {
         <div className="todo">
             <div onClick={completeHandler} className={showTodos.isCompleted ? "completed" : ""}>{showTodos.text}</div>
             <div>
-                <button onClick={editHandler}>Edit</button>
-                <button onClick={deletHandler}>Delete</button>
+                <button className="btn" onClick={editHandler}>Edit</button>
+                <button className="btn remove" onClick={deletHandler}>Delete</button>
             </div>
         </div>
      );
